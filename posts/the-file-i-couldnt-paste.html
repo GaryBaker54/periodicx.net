@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The file I couldn't paste into ChatGPT · Gary Baker</title>
+<meta name="description" content="Why I started building Scrybe: masking customer details in RVTools exports before an AI model ever sees them.">
+<style>
+  :root {
+    --bg: #f6f4ee;
+    --ink: #1b1d22;
+    --muted: #5a5f6b;
+    --cobalt: #1f4fa3;
+    --gold: #e8b425;
+    --rule: #d9d4c7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12141a;
+      --ink: #ecebe6;
+      --muted: #a3a6ae;
+      --cobalt: #6f9be8;
+      --gold: #f0c440;
+      --rule: #2a2d36;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font: 18px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, sans-serif;
+  }
+  main {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 72px 20px 56px;
+  }
+  .tile {
+    width: 104px;
+    height: 104px;
+    border: 3px solid var(--cobalt);
+    border-radius: 6px;
+    background: var(--gold);
+    color: #14213d;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    padding: 6px 8px;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    margin-bottom: 36px;
+  }
+  .tile .num { font-size: 13px; font-weight: 600; }
+  .tile .sym { font-size: 42px; font-weight: 700; line-height: 1; align-self: center; justify-self: center; font-family: system-ui, sans-serif; }
+  .tile .cls { font-size: 10px; text-align: center; letter-spacing: .04em; }
+  h1 {
+    font-size: 40px;
+    line-height: 1.15;
+    margin: 0 0 28px;
+    letter-spacing: -0.01em;
+  }
+  p { margin: 0 0 20px; }
+  .aside { color: var(--muted); }
+  hr { border: 0; border-top: 1px solid var(--rule); margin: 36px 0 24px; }
+  ul.links { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px 28px; }
+  a { color: var(--cobalt); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 2px; }
+  footer { color: var(--muted); font-size: 14px; margin-top: 48px; }
+
+  .back { font-size: 15px; margin-bottom: 40px; display: inline-block; }
+  .date { color: var(--muted); font-size: 15px; margin: -16px 0 32px; }
+  h1 { font-size: 34px; }
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="/">&larr; Gary Baker</a>
+
+  <h1>The file I couldn't paste into ChatGPT</h1>
+  <p class="date">November 3, 2026</p>
+
+  <p>If you've worked with VMware for any length of time, you know RVTools. You run it against a customer's vCenter and get back a spreadsheet of their whole environment: every VM, host, cluster, datastore and IP address, plus a lot of names that tell you exactly who the customer is.</p>
+
+  <p>A while back I wanted an AI model to help me work through one of those exports. It's good at that kind of work. But I wasn't going to paste a customer's environment into a chatbot running on someone else's servers. Nobody should.</p>
+
+  <p>So I went looking for a tool that would mask the identifying details first and let me work with the rest. I found almost nothing that helped. I started with a script, and somewhere along the way I realized most of the pieces already existed. Nobody had put them together.</p>
+
+  <p>So I started building it. It's called Scrybe, and it runs on your own machine. It reads structured files like spreadsheets and CSVs, works out what kind of data each cell holds, and then applies a policy you choose. The policy decides what happens: mask it, swap it for a readable placeholder, or leave it alone. One part decides "this is a hostname." A different part decides what to do about it. I kept those two jobs separate on purpose. And when it isn't sure, it protects more, not less.</p>
+
+  <p>I started with RVTools, but the same problem shows up everywhere. People want to use AI on real work, and real work is full of names, emails, account numbers and customer details. The answer can't be "don't use AI." It can't be "paste it in and hope," either.</p>
+
+  <p>Over the next few weeks I'll write more about how it works, including what I got wrong along the way.</p>
+
+  <hr>
+  <ul class="links">
+    <li><a href="/">Home</a></li>
+    <li><a href="https://github.com/GaryBaker54">GitHub</a></li>
+    <li><a href="mailto:gbaker@periodicx.net">gbaker@periodicx.net</a></li>
+  </ul>
+</main>
+</body>
+</html>
